@@ -3,7 +3,7 @@
 <head>
 	<title>NOT TITLE</title>
 
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
 
@@ -11,15 +11,17 @@
 	<form action="" method="post" enctype="multipart/form-data">
 		
 		<label for="myfile">Select a file:</label>
-		<input type="file" id="myfile" name="myfile"><br>
+		<input class="drop-box" type="file" id="myfile" name="myfile"><br>
 		
 		<input type="submit" value="convert">
 	</form>
+
 	{% if downloadable %}
-		<a href="{{ url_for('static', filename='converted_pdfs/converted.pdf') }}" download>
+		<a href="{{url_for('download_converted_pdf')}}" download>
 		  <!-- <img src="do.jpg" alt="converted file" width="104" height="142"> -->
-		  converted file
+			converted file
 		</a>
 	{% endif %}
+
 </body>
 </html>
